@@ -1,14 +1,12 @@
+from const import BASE_URL  # noqa: D100
+from model.measurement import Measurement
 import requests
-
-def get_import() -> float:
-    resp = requests.get(
-        "http://host.docker.internal:8080/houses/0/meters/0/import", timeout=5
-    )
-    return float(resp.json()["value"])
+from rest import _get_measurement
 
 
-def get_export() -> float:
-    resp = requests.get(
-        "http://host.docker.internal:8080/houses/0/meters/0/export", timeout=5
-    )
-    return float(resp.json()["value"])
+def get_import() -> Measurement:
+    return _get_measurement("/houses/0/meters/0/import")
+
+
+def get_export() -> Measurement:
+    return _get_measurement("/houses/0/meters/0/import")

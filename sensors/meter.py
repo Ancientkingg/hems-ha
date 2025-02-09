@@ -15,7 +15,8 @@ class ImportSensor(SensorEntity):
     _attr_state_class = SensorStateClass.TOTAL
 
     def update(self) -> None:
-        self._attr_native_value = get_import()
+        measurement = get_import()
+        self._attr_native_value = measurement.value
 
 
 class ExportSensor(SensorEntity):
@@ -25,4 +26,5 @@ class ExportSensor(SensorEntity):
     _attr_state_class = SensorStateClass.TOTAL
 
     def update(self) -> None:
-        self._attr_native_value = get_export()
+        measurement = get_export()
+        self._attr_native_value = measurement.value

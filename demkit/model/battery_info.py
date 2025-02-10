@@ -33,6 +33,7 @@ class BatteryInfo:
 
     """
 
+    capacity: float
     max_charge: float
     max_discharge: float
     state_of_charge: float

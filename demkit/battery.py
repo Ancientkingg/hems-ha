@@ -10,4 +10,4 @@ def get_energy_in() -> float:
 
 def get_energy_out() -> float:
     battery_info = get_battery_info()
-    return min(-battery_info.consumption, 0)
+    return -min(battery_info.consumption, 0)

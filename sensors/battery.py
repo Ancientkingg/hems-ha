@@ -16,7 +16,7 @@ class BatteryEnergyInSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_energy_in()
-        self._attr_native_value = measurement.value
+        self._attr_native_value = measurement
 
 
 class BatteryEnergyOutSensor(SensorEntity):
@@ -27,4 +27,4 @@ class BatteryEnergyOutSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_energy_out()
-        self._attr_native_value = measurement.value
+        self._attr_native_value = measurement

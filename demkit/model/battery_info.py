@@ -13,10 +13,10 @@ class BatteryStatus(Enum):
 
     """
 
-    CHARGING = "CHARGING"
-    DISCHARGING = "DISCHARGING"
-    IDLE = "IDLE"
-    ERROR = "ERROR"
+    CHARGING = 0
+    DISCHARGING = 1
+    IDLE = 2
+    ERROR = -1
 
 
 @dataclass

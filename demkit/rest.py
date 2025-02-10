@@ -37,3 +37,6 @@ def _get_solar_info(path: str) -> SolarInfo:
     return SolarInfo(
         consumption=data["consumption"],
     )
+
+def _set_solar_state(path: str, state: bool) -> None:
+    requests.get(BASE_URL + path + '/toggle/' + str(state), timeout=5)

@@ -1,4 +1,4 @@
-from ..demkit.meter import get_export, get_import
+from custom_components.hemsdelft.demkit.meter import get_export, get_import
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,

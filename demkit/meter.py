@@ -1,5 +1,5 @@
-from model.measurement import Measurement  # noqa: D100
-from rest import _get_measurement
+from .model.measurement import Measurement  # noqa: D100
+from .rest import _get_measurement
 
 
 def get_import() -> Measurement:

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from sensors.meter import ExportSensor, ImportSensor
-
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
+
+from .sensors.meter import ExportSensor, ImportSensor
 
 
 async def async_setup_platform(

@@ -1,6 +1,6 @@
-from model.const import BASE_URL
-from model.measurement import Measurement
-from model.rest_error import RestError
+from .model.const import BASE_URL
+from .model.measurement import Measurement
+from .model.rest_error import RestError
 import requests
 
 

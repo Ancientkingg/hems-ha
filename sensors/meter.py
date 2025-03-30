@@ -7,7 +7,6 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import UnitOfEnergy
 
-
 class ImportSensor(SensorEntity):
     _attr_name = "Import power"
     _attr_native_unit_of_measurement = UnitOfEnergy.WATT_HOUR

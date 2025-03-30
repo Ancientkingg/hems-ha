@@ -1,5 +1,6 @@
 from dataclasses import dataclass  # noqa: D100
 from enum import Enum
+from typing import Optional
 
 
 class BatteryStatus(Enum):
@@ -37,5 +38,6 @@ class BatteryInfo:
     max_charge: float
     max_discharge: float
     state_of_charge: float
+    target_soc: Optional[float]
     status: BatteryStatus
     consumption: float

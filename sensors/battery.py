@@ -1,4 +1,4 @@
-from custom_components.hemsdelft.demkit.battery import get_energy_in, get_energy_out
+from custom_components.hemsdelft.demkit.battery import get_battery_energy_in, get_battery_energy_out
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -7,7 +7,6 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import UnitOfEnergy
 
-
 class BatteryEnergyInSensor(SensorEntity):
     _attr_name = "Battery Energy In"
     _attr_native_unit_of_measurement = UnitOfEnergy.WATT_HOUR
@@ -15,7 +14,7 @@ class BatteryEnergyInSensor(SensorEntity):
     _attr_state_class = SensorStateClass.TOTAL
 
     def update(self) -> None:
-        measurement = get_energy_in()
+        measurement = get_battery_energy_in()
         self._attr_native_value = measurement
 
 
@@ -26,5 +25,5 @@ class BatteryEnergyOutSensor(SensorEntity):
     _attr_state_class = SensorStateClass.TOTAL
 
     def update(self) -> None:
-        measurement = get_energy_out()
+        measurement = get_battery_energy_out()
         self._attr_native_value = measurement

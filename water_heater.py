@@ -8,14 +8,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 
-from custom_components.hemsdelft.sensors.meter import ExportSensor, ImportSensor
-from custom_components.hemsdelft.sensors.battery import (
-    BatteryEnergyInSensor,
-    BatteryEnergyOutSensor,
-)
-from custom_components.hemsdelft.sensors.solar import SolarEnergyProductionSensor
+from custom_components.hemsdelft.switches.thermostat import ThermostatSwitchEntity
 
 SCAN_INTERVAL: Final = timedelta(seconds=2)
+
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -25,10 +21,7 @@ async def async_setup_platform(
 ):
     async_add_entities(
         [
-            ExportSensor(),
-            ImportSensor(),
-            BatteryEnergyInSensor(),
-            BatteryEnergyOutSensor(),
-            SolarEnergyProductionSensor(),
+            ThermostatSwitchEntity(),
         ]
     )  # noqa: F821
+

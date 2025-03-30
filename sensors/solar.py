@@ -7,7 +7,6 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import UnitOfEnergy
 
-
 class SolarEnergyProductionSensor(SensorEntity):
     _attr_name = "Solar Energy Production"
     _attr_native_unit_of_measurement = UnitOfEnergy.WATT_HOUR

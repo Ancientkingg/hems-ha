@@ -12,6 +12,16 @@ from custom_components.hemsdelft.switches.battery import BatteryTargetSwitch
 
 SCAN_INTERVAL: Final = timedelta(seconds=2)
 
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigType,
+    async_add_entities: AddEntitiesCallback,
+):
+    entities = []
+    if entry.data["Battery"]:
+        entities.append(BatteryTargetSwitch())
+
+    async_add_entities(entities)
 
 async def async_setup_platform(
     hass: HomeAssistant,

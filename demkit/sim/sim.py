@@ -1,8 +1,7 @@
 import logging
 import httpx
 from dataclasses import dataclass
-
-BASE_URL = "http://localhost:8080"
+from ..const import BASE_URL
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -99,5 +98,9 @@ def startSim(simDevices: SimDevices, known_loads: list[KnownLoad], unknown_loads
                 client.post(BASE_URL + "/houses/0/entity", json={"entity_id": load.entity_id, "consumption": str(load.consumption)}).raise_for_status()
 
         _LOGGER.info("Simulation started successfully")
+
+        return True
     except Exception as e:
         _LOGGER.error("Error starting simulation: %s", e)
+
+        return False

@@ -41,6 +41,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self.simKnownLoads: list[sim.KnownLoad] = []
         self.simUnknownLoads: list[sim.UnknownLoad] = []
 
+        self.errors = {}
+
     async def async_step_user(self, user_input=None):
         """Handle the initial step."""
         if user_input is not None:
@@ -90,7 +92,11 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             _LOGGER.info(self.simDevices, self.simKnownLoads,
                          self.simUnknownLoads)
 
-            sim.startSim(self.simDevices, self.simKnownLoads, self.simUnknownLoads)
+            simStarted = sim.startSim(self.simDevices, self.simKnownLoads, self.simUnknownLoads)
+
+            if not simStarted:
+                self.errors["base"] = "Unexpected error starting simulation"
+                return
 
             return self.async_create_entry(
                 title="DEMKit Integration", data=self.simDevicesUserInput
@@ -99,7 +105,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="unknownLoads", data_schema=vol.Schema(self.unknownLoadsSchema), description_placeholders={
                 "form_description": "Loads"
-            })
+            }, errors=self.errors)
 
     def _get_real_devices(self):
         entities = self.hass.states._states_data

@@ -93,7 +93,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             sim.startSim(self.simDevices, self.simKnownLoads, self.simUnknownLoads)
 
             return self.async_create_entry(
-                title="DEMKit Integeration", data=self.simDevicesUserInput
+                title="DEMKit Integration", data=self.simDevicesUserInput
             )
 
         return self.async_show_form(

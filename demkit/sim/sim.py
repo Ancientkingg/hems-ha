@@ -18,7 +18,8 @@ washingmachineJSON = {
 }
 
 configJSON = {
-  "timeBase": 1,
+  "timeBase": 3600,
+  "timeDelayBase": 0,
   "timeOffset": -1672585200,
   "timeZone": "Europe/Amsterdam",
   "intervals": 561600,

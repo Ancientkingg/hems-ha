@@ -17,7 +17,10 @@ class BatteryTargetSwitch(HumidifierEntity):
     _attr_unique_id = "battery_target_switch"
 
     def update(self):
-        self._attr_current_humidity = get_state_of_charge()
+        current_soc = get_state_of_charge()
+        # round current_soc to 2 digits behind the comma
+        current_soc = round(current_soc, 2)
+        self._attr_current_humidity = current_soc
         self._attr_target_humidity = get_target_soc()
         self._attr_action = get_battery_status()
 

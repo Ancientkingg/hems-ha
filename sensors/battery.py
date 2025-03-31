@@ -16,6 +16,7 @@ class BatteryEnergyInSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_battery_energy_in()
+        measurement = round(measurement, 1)
         self._attr_native_value = measurement
 
 
@@ -28,4 +29,5 @@ class BatteryEnergyOutSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_battery_energy_out()
+        measurement = round(measurement, 1)
         self._attr_native_value = measurement

@@ -16,4 +16,5 @@ class SolarEnergyProductionSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_production()
+        measurement = round(measurement, 1)
         self._attr_native_value = -measurement

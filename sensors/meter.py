@@ -16,6 +16,7 @@ class ImportSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_import()
+        measurement = round(measurement, 1)
         self._attr_native_value = measurement.value
 
 
@@ -28,4 +29,5 @@ class ExportSensor(SensorEntity):
 
     def update(self) -> None:
         measurement = get_export()
+        measurement = round(measurement, 1)
         self._attr_native_value = measurement.value

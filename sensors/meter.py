@@ -11,7 +11,7 @@ class ImportSensor(SensorEntity):
     _attr_name = "Import power"
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_device_class = SensorDeviceClass.POWER
-    _attr_state_class = SensorStateClass.TOTAL
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     def update(self) -> None:
         measurement = get_import()
@@ -22,7 +22,7 @@ class ExportSensor(SensorEntity):
     _attr_name = "Export power"
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_device_class = SensorDeviceClass.POWER
-    _attr_state_class = SensorStateClass.TOTAL
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     def update(self) -> None:
         measurement = get_export()

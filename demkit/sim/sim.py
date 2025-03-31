@@ -2,7 +2,7 @@ import logging
 import httpx
 from dataclasses import dataclass
 
-BASE_URL = "http://host.docker.internal:8080"
+BASE_URL = "http://localhost:8080"
 
 _LOGGER = logging.getLogger(__name__)
 

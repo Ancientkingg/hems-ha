@@ -8,7 +8,7 @@ from homeassistant.components.sensor import (
 from homeassistant.const import UnitOfPower
 
 class BatteryEnergyInSensor(SensorEntity):
-    _attr_name = "Battery Energy In"
+    _attr_name = "Battery Power In"
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_device_class = SensorDeviceClass.POWER
     _attr_state_class = SensorStateClass.MEASUREMENT
@@ -19,7 +19,7 @@ class BatteryEnergyInSensor(SensorEntity):
 
 
 class BatteryEnergyOutSensor(SensorEntity):
-    _attr_name = "Battery Energy Out"
+    _attr_name = "Battery Power Out"
     _attr_native_unit_of_measurement = UnitOfPower.WATT
     _attr_device_class = SensorDeviceClass.POWER
     _attr_state_class = SensorStateClass.MEASUREMENT

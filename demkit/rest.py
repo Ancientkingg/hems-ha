@@ -1,5 +1,5 @@
 from typing import Optional
-from .model.const import BASE_URL
+from .const import BASE_URL
 from .model.measurement import Measurement
 from .model.battery_info import BatteryInfo
 from .model.solar_info import SolarInfo

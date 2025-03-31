@@ -18,6 +18,7 @@ class ThermostatSwitchEntity(WaterHeaterEntity):
     _attr_operation_list = ["auto", "heat", "cool", "off"]
     _attr_current_operation = "auto"
     _attr_state = water_heater.STATE_ON
+    _attr_unique_id = "thermostat_switch"
 
 
     def update(self):

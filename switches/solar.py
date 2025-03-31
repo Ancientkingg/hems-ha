@@ -7,6 +7,7 @@ class PvPanelSwitch(SwitchEntity):
     _attr_name = "PV Panel"
     _attr_assumed_state = True
     _attr_device_class = SwitchDeviceClass.OUTLET
+    _attr_unique_id = "pv_panel_switch"
 
 
     def turn_on(self, **kwargs) -> None:
